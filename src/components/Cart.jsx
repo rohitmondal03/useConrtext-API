@@ -5,7 +5,7 @@ import SingleProductsPage from './SingleProducts';
 
 const CartPage = () => {
     const { cart } = useContext(Cart)
-    console.log(cart);
+    // console.log(cart);
 
     return (
         <section>
