@@ -1,16 +1,26 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Cart } from '../context/CartContext'
 import SingleProductsPage from './SingleProducts';
 
 
 const CartPage = () => {
     const { cart } = useContext(Cart)
+
+    const [totalPrice, setTotalPrice]= useState(0)
     // console.log(cart);
+
+    useEffect(() => {
+        setTotalPrice(cart.reduce((acc, curr) => acc + Number(curr.price), 0))
+    }, [cart])
 
     return (
         <section>
 
-            <div>Cart</div>
+            <h2>Cart</h2>
+
+            <div>
+                Total Price: Rs.{totalPrice} 
+            </div>
 
             <div>
                 {cart.map((item) => (
