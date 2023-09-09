@@ -7,7 +7,6 @@ const CartPage = () => {
     const { cart } = useContext(Cart)
 
     const [totalPrice, setTotalPrice]= useState(0)
-    // console.log(cart);
 
     useEffect(() => {
         setTotalPrice(cart.reduce((acc, curr) => acc + Number(curr.price), 0))
